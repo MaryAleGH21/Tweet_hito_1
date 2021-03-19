@@ -7,23 +7,14 @@ class Tweet < ApplicationRecord
 
    scope :tweets_for_me, ->(friends_ids) {where(user_id: friends_ids)}
    
-
-
-  #contenido =  Tweet.params[:content]
-  #@q = Tweets.params[:content]
-  puts "_______________----------------___________"
+   data = Tweet.all
+   @contenido = data.map{|friend|friend.content }
+   
+  def ver_hashtag()
+    #contenido = Tweet.params[:content]
+    contenido.split(" ").each do |x|
+      
+     end 
+   end 
   
- def ver_hashtag
-   contenido = params[:content]
-   puts contenido 
-  # palabla.split("").each do |x|
-   #  if x = #
-       
-    # end
-   #end
- end 
-
-
-
-
 end

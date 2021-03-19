@@ -1,10 +1,11 @@
 class TweetsController < ApplicationController
-  before_action :set_tweet, only: %i[ show edit update destroy ]
+  before_action :set_tweet, only: %i[ show edit update destroy ver_hashtag ]
   #  before_action :set_like, only: %i[ show create destroy ]
   # GET /tweets or /tweets.json
   before_action :authenticate_user!, except: %i[ index ]
   
 
+ 
   def index 
     @q = params[:q]
     
@@ -38,6 +39,7 @@ class TweetsController < ApplicationController
     @tweet = Tweet.new
     
   end
+
 
   # GET /tweets/1/edit
   def edit
