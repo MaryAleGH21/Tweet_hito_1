@@ -4,7 +4,8 @@ class LikesController < ApplicationController
         @like = Like.new(user: current_user,tweet: @tweet)
                 
        if @like.save
-           redirect_to @tweet, notice: "like save."  
+           redirect_to tweets_url, notice: "like save." 
+            
          else
           redirect_to @tweet, notice: "No save."  
         end

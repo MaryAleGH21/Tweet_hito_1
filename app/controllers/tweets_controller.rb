@@ -2,19 +2,18 @@ class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[ show edit update destroy ]
   #  before_action :set_like, only: %i[ show create destroy ]
   # GET /tweets or /tweets.json
-  before_action :authenticate_user!, except: %i[ index]
+  before_action :authenticate_user!, except: %i[ index ]
   
 
   def index 
-      
     @q = params[:q]
     
     if @q
      @tweets = Tweet.where(:content => @q).page(params[:page]).paginate(page: params[:page], per_page:50)
      
     else
-      @tweets = Tweet.all.page(params[:page]).paginate(page: params[:page], per_page:50)
-      
+      tweets = user_signed_in? ? Tweet.tweets_for_me(current_user.friends.map{|friend|friend.friend_id }) : Tweet.all
+      @tweets = tweets.page(params[:page]).paginate(page: params[:page], per_page:50)
     end
       
    
