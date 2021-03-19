@@ -10,11 +10,12 @@ class Tweet < ApplicationRecord
    data = Tweet.all
    @contenido = data.map{|friend|friend.content }
    
-  def ver_hashtag()
-    #contenido = Tweet.params[:content]
-    contenido.split(" ").each do |x|
-      
-     end 
-   end 
-  
+  def content_with_hashtag
+  new_content = self. content.split(" ").map do |word|
+    if word.include?("#")
+      "<a href='/?q='#{word}'>#{word}</a>"
+      end 
+    end
+    new_content.join(' ').html_safe
+  end
 end

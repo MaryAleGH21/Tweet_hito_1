@@ -10,7 +10,7 @@ class TweetsController < ApplicationController
     @q = params[:q]
     
     if @q
-     @tweets = Tweet.where(:content => @q).page(params[:page]).paginate(page: params[:page], per_page:50)
+     @tweets = Tweet.where("content ILIKE ?" , "%#{@q}%" ).page(params[:page]).paginate(page: params[:page], per_page:50)
      
     else
       tweets = user_signed_in? ? Tweet.tweets_for_me(current_user.friends.map{|friend|friend.friend_id }) : Tweet.all
