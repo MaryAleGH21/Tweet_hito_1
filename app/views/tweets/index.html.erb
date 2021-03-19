@@ -2,6 +2,11 @@
 
 <h1 class= "text-center"> Tweets</h1>
 <br>
+ <form>
+ <input name="q" <%= @Tweet %> >
+ <button type="submit">Buscar</button>
+</form>
+ <br>
 <table class="table table-hover">
   <thead class="thead-dark">
     <tr>
@@ -18,7 +23,7 @@
   <tbody>
     <% @tweets.each do |tweet| %>
       <tr>
-        <td><%= tweet.retweet&.id %></td>
+        <td><%= tweet.user.id %></td>
         <td><%= tweet.content %></td>
         <td><%= image_tag tweet.user.photo,height:100,width:100 %></td>
         <td><%= tweet.likes.count %></td>
@@ -39,5 +44,7 @@
 <%= link_to 'New Tweet', new_tweet_path, class:"btn btn-info text-white" %>
 </div>
 <br>
+<br>
+<%= link_to 'home', tweets_path, class:"btn btn-info text-white ml-auto" %>
 <br>
 

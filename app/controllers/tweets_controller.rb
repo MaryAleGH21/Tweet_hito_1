@@ -6,10 +6,19 @@ class TweetsController < ApplicationController
   
 
   def index 
-
-    @tweets = Tweet.all.page(params[:page]).paginate(page: params[:page], per_page:50)
+      
+    @q = params[:q]
+    
+    if @q
+     @tweets = Tweet.where(:content => @q).page(params[:page]).paginate(page: params[:page], per_page:50)
+     
+    else
+      @tweets = Tweet.all.page(params[:page]).paginate(page: params[:page], per_page:50)
+      
+    end
+      
    
-     # GET /tweets/1 or /tweets/1.json
+    # GET /tweets/1 or /tweets/1.json
   end 
 
   def show
