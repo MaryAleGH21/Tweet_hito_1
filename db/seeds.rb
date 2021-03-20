@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-user = User.create(name:"Jordan", photo:"https://www.dzoom.org.es/wp-content/uploads/2010/09/mirada-ojos-encuadre-primer-plano-sexy-810x540.jpg", email:"jordan@hola.com", password: "123456")
+user = User.create(name:"Jordan", photo:"https://i.pinimg.com/236x/c6/c4/16/c6c41639a7096b68e0da004a7f413c84--faces-children.jpg", email:"jordan@hola.com", password: "123456")
 user1 = User.create(name:"Alejandra", photo:"https://i.pinimg.com/236x/c6/c4/16/c6c41639a7096b68e0da004a7f413c84--faces-children.jpg", email:"ale@hola.com", password: "123456")
 user2 = User.create(name:"Rafa", photo:"https://i.blogs.es/712ff6/sorpresa/450_1000.jpg", email:"rafa@hola.com", password: "123456")
 user3 = User.create(name:"Carmen", photo:"https://www.dzoom.org.es/wp-content/uploads/2010/09/mirada-ojos-encuadre-primer-plano-sexy-810x540.jpg", email:"carmen@hola.com", password: "123456")
